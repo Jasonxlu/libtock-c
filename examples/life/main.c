@@ -20,6 +20,7 @@ static void button_callback(int btn_num,
   {
     if (val == 1)
     {
+      printf("Pressed!\n");
       int meaning_of_life;
       int life_err = life_meaning(&meaning_of_life);
       if (life_err < 0)
@@ -34,7 +35,8 @@ static void button_callback(int btn_num,
   {
     if (val == 1)
     {
-      define_life(42);
+      printf("Pressed!\n");
+      define_life(52);
     }
   }
 }
