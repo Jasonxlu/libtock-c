@@ -7,7 +7,7 @@ extern "C"
 {
 #endif
 
-#define DRIVER_NUM_LEDS 0x00000002
+#define DRIVER_NUM_LIFE 0x00090008
 
     int led_on(int led_num);
     int led_off(int led_num);
