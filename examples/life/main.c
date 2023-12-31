@@ -15,9 +15,21 @@ static void button_callback(int btn_num,
                             __attribute__((unused)) int arg2,
                             __attribute__((unused)) void *ud)
 {
-  if (val == 1)
+  if (btn_num == 0)
   {
-    led_toggle(btn_num);
+    if (val == 1)
+    {
+      int meaning_of_life;
+      int err = life_meaning(&meaning_of_life);
+      printf("The meaning of life is %d\n", meaning_of_life);
+    }
+  }
+  else if (btn_num == 1)
+  {
+    if (val == 1)
+    {
+      define_life(42);
+    }
   }
 }
 
