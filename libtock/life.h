@@ -9,12 +9,11 @@ extern "C"
 
 #define DRIVER_NUM_LIFE 0x00090008
 
-    int led_on(int led_num);
-    int led_off(int led_num);
-    int led_toggle(int led_num);
+    // Returns the meaning of life.
+    int life_meaning(int *life);
 
-    // Returns the number of LEDs on the host platform.
-    int led_count(int *count);
+    // If 42 is not the meaning of life, this function will error.
+    int define_life(int life_num);
 
 #ifdef __cplusplus
 }

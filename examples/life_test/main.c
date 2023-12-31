@@ -5,7 +5,7 @@
 // the third LED is toggled.
 
 #include <button.h>
-#include <led.h>
+#include <life.h>
 
 // Callback for button presses.
 //   btn_num: The index of the button associated with the callback

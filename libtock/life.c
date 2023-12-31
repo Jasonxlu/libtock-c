@@ -1,25 +1,13 @@
 #include "led.h"
 
-int led_count(int *count)
+int life_meaning(int *life)
 {
     syscall_return_t rval = command(DRIVER_NUM_LEDS, 0, 0, 0);
-    return tock_command_return_u32_to_returncode(rval, (uint32_t *)count);
+    return tock_command_return_u32_to_returncode(rval, (uint32_t *)life);
 }
 
-int led_on(int led_num)
+int led_on(int life_num)
 {
-    syscall_return_t rval = command(DRIVER_NUM_LEDS, 1, led_num, 0);
-    return tock_command_return_novalue_to_returncode(rval);
-}
-
-int led_off(int led_num)
-{
-    syscall_return_t rval = command(DRIVER_NUM_LEDS, 2, led_num, 0);
-    return tock_command_return_novalue_to_returncode(rval);
-}
-
-int led_toggle(int led_num)
-{
-    syscall_return_t rval = command(DRIVER_NUM_LEDS, 3, led_num, 0);
+    syscall_return_t rval = command(DRIVER_NUM_LEDS, life_num, 0, 0);
     return tock_command_return_novalue_to_returncode(rval);
 }
