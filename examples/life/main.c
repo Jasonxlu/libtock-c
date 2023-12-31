@@ -6,6 +6,7 @@
 
 #include <button.h>
 #include <life.h>
+#include <stdio.h>
 
 // Callback for button presses.
 //   btn_num: The index of the button associated with the callback
@@ -20,7 +21,12 @@ static void button_callback(int btn_num,
     if (val == 1)
     {
       int meaning_of_life;
-      int err = life_meaning(&meaning_of_life);
+      int life_err = life_meaning(&meaning_of_life);
+      if (life_err < 0)
+      {
+        printf("Error getting the meaning of life: %d\n", life_err);
+        return;
+      }
       printf("The meaning of life is %d\n", meaning_of_life);
     }
   }
