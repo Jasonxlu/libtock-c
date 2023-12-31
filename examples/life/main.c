@@ -36,7 +36,14 @@ static void button_callback(int btn_num,
     if (val == 1)
     {
       printf("Pressed!\n");
-      define_life(52);
+      int def_life_err = define_life(42);
+      printf("def_life_err: %d\n", def_life_err);
+      if (def_life_err < 0)
+      {
+        printf("Error defining the meaning of life: %d\n", def_life_err);
+        return;
+      }
+      printf("The meaning of life is now 42\n");
     }
   }
 }
