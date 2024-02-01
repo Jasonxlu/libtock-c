@@ -11,55 +11,57 @@
 // Callback for button presses.
 //   btn_num: The index of the button associated with the callback
 //   val: 1 if pressed, 0 if depressed
-static void button_callback(int btn_num,
-                            int val,
-                            __attribute__((unused)) int arg2,
+static void button_callback(int                           btn_num,
+                            int                           val,
+                            __attribute__((unused)) int   arg2,
                             __attribute__((unused)) void *ud)
 {
-  if (btn_num == 0)
-  {
-    if (val == 1)
-    {
+  if (btn_num == 0) {
+    if (val == 1) {
       printf("Pressed!\n");
       int meaning_of_life;
       int life_err = life_meaning(&meaning_of_life);
-      if (life_err < 0)
-      {
+      if (life_err < 0) {
         printf("Error getting the meaning of life: %d\n", life_err);
         return;
       }
       printf("The meaning of life is %d\n", meaning_of_life);
     }
-  }
-  else if (btn_num == 1)
-  {
-    if (val == 1)
-    {
+  } else if (btn_num == 1)   {
+    if (val == 1) {
       printf("Pressed!\n");
       int def_life_err = define_life(52);
 
-      if (def_life_err < 0)
-      {
+      if (def_life_err < 0) {
         printf("Error defining the meaning of life, error code: %d\n", def_life_err);
         return;
       }
       printf("The meaning of life is successfully defined: 42\n");
     }
-  }
-  else if (btn_num == 2)
-  {
-    if (val == 1)
-    {
+  } else if (btn_num == 2)   {
+    if (val == 1) {
       printf("Pressed!\n");
       int def_life_err = define_life(42);
 
-      if (def_life_err < 0)
-      {
+      if (def_life_err < 0) {
         printf("Error defining the meaning of life, error code: %d\n", def_life_err);
         return;
       }
       printf("The meaning of life is successfully defined: 42!\n");
     }
+  } else if (btn_num == 3)   {
+    if (val == 1) {
+      printf("Pressed!\n");
+      int meaning_of_life;
+      int life_err = missing_driver(&meaning_of_life);
+      if (life_err < 0) {
+        printf("Error getting the meaning of life: %d\n", life_err);
+        return;
+      }
+      printf("The meaning of life is %d\n", meaning_of_life);
+    }
+  } else {
+    printf("Button %d %s\n", btn_num, val ? "pressed" : "depressed");
   }
 }
 
@@ -77,8 +79,7 @@ int main(void)
   if (err < 0)
     return err;
 
-  for (int i = 0; i < count; i++)
-  {
+  for (int i = 0; i < count; i++) {
     button_enable_interrupt(i);
   }
 
